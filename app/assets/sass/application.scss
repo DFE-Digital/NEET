@@ -4,3 +4,60 @@
 // 
 
 // Add extra styles here
+.govuk-main-wrapper:has(.neet-course-details-hero) {
+  padding-top: 0;
+}
+
+.neet-course-details-hero {
+  background: govuk-colour("blue", $variant: "tint-80");
+  color: govuk-colour("black");
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.neet-course-page__hero-inner {
+  padding-top: govuk-spacing(2);
+  padding-bottom: govuk-spacing(8);
+}
+
+.neet-course-page__hero-copy {
+  max-width: 760px;
+}
+
+.neet-course-page__hero-inner--compact {
+  padding-top: 70px;
+  padding-bottom: 55px;
+}
+
+.neet-course-page__hero-inner--compact .neet-course-page__hero-copy {
+  max-width: 100%;
+  flex: 1;
+}
+
+.neet-course-page__hero-copy--wide {
+  max-width: 780px;
+}
+
+.neet-course-page__hero-title {
+  color: govuk-colour("black");
+  margin-bottom: 1.25rem;
+  @include govuk-font-size(48);
+}
+
+.neet-course-page__hero-text {
+  color: govuk-colour("black");
+  margin-bottom: 0;
+  max-width: 700px;
+}
+
+.neet-course-page__hero-icon-wrap {
+  flex-shrink: 0;
+}
+
+.neet-course-page__hero-icon {
+  width: 100%;
+  height: auto;
+}

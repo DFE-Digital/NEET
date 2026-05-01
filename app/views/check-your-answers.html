@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block pageBefore %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+      <h1 class="govuk-heading-l">Check your answers</h1>
+      <p class="govuk-body">We want to make sure we've heard what you've said so we can give you the best information we can to help.</p>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Name</dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.firstName if data.firstName else 'Not provided' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/whats-your-first-name">Change<span class="govuk-visually-hidden"> name</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How you're finding things</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.feeling %}
+              {% if data.feeling is string %}
+                {{ data.feeling }}
+              {% else %}
+                {{ data.feeling | join(', ') }}
+              {% endif %}
+            {% else %}
+              Not provided
+            {% endif %}
+            {% if data.feelingMoreDetail %}
+              <br><br>{{ data.feelingMoreDetail }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/how-are-you-finding-sixth-form-or-college">Change<span class="govuk-visually-hidden"> how you're finding things</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What you need to do</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.task %}
+              {% if data.task is string %}
+                {{ data.task }}
+              {% else %}
+                {{ data.task | join(', ') }}
+              {% endif %}
+              {% if data.gcse %}
+                <br>GCSE subject:
+                {% if data.gcse is string %}{{ data.gcse }}{% else %}{{ data.gcse | join(', ') }}{% endif %}
+              {% endif %}
+            {% else %}
+              Not provided
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/what-do-you-need-to-do">Change<span class="govuk-visually-hidden"> what you need to do</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Where you're at with college or sixth form</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.collegeStatus == 'college-year-1-2' %}In my first or second year of college
+            {% elif data.collegeStatus == 'sixth-form-year-12-13' %}In year 12 or 13 at sixth form
+            {% elif data.collegeStatus == 'starting-college' %}About to start college
+            {% elif data.collegeStatus == 'starting-sixth-form' %}About to start sixth form
+            {% else %}Not provided
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/where-are-you-at-with-college-or-sixth-form">Change<span class="govuk-visually-hidden"> where you're at with college or sixth form</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Which parts of college you need help with</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['college-help'] %}
+              {% if data['college-help'] is string %}
+                {{ data['college-help'] }}
+              {% else %}
+                {{ data['college-help'] | join(', ') }}
+              {% endif %}
+            {% else %}
+              Not provided
+            {% endif %}
+            {% if data.collegeHelpMoreDetail %}
+              <br><br>{{ data.collegeHelpMoreDetail }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/which-parts-of-college-do-you-need-help-with">Change<span class="govuk-visually-hidden"> which parts of college you need help with</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <form action="/form-handler" method="post" novalidate>
+        <div class="govuk-button-group">
+         {{ govukButton({
+           text: "Continue"
+         }) }}
+         <a class="govuk-link" href="#">Cancel</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
