@@ -124,6 +124,16 @@
   padding-top: 0;
 }
 
+.neet-course-details-hero {
+  background: govuk-colour("blue", $variant: "tint-80");
+  color: govuk-colour("black");
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 
 .neet-course-page__hero-inner {
   padding-top: govuk-spacing(2);
