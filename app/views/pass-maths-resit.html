@@ -12,17 +12,15 @@
   </script>
 {% endblock %}
 
-{% block content %}
-<section class="neet-course-details-hero">
-  <div class="govuk-width-container neet-course-page__hero-inner">
-    {{ govukBackLink({
+{% block beforeContent %}
+{{ govukBackLink({
       text: "Back",
       href: "javascript:window.history.back()"
     }) }}
-    <div class="govuk-grid-row govuk-!-padding-bottom-4"></div>
-    <h1 class="govuk-heading-xl neet-course-page__hero-title">What you can do next</h1>
-    <p class="govuk-body-l">Thanks for sharing where you’re at. Take a look through who can help, what you might want to do next and get suggestions of what to say.</p>
-  </div>
+{% endblock %}
+{% block content %}
+<section class="neet-advice-hero">
+  <img src="/public/images/pass-gcse-maths-advice-hero.jpg" alt="" class="neet-advice-hero__image">
 </section>
 
 <div class="govuk-width-container">
