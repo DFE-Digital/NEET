@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  How are you finding your current situation – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block pageBefore %}
@@ -17,16 +17,17 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Hi, {{ data.firstName }}. How are you finding college, sixth form or applying for jobs?
+        {% if data.firstName %}Hi, {{ data.firstName }}. How are you finding your current situation?{% else %}How are you finding your current situation?{% endif %}
       </h1>
-       <p>This can be positive, negative or both. It’s okay to be honest - we just want to understand a bit more about your current situation.</p>
-      <form class="form" action="what-do-you-need-to-do" method="post">
+       <p>Think about how you’re finding things like college, sixth form or applying for jobs. This can be positive, negative or both. </p>
+       <p>It’s okay to be honest - we just want to understand a bit more about you.</p>
+       <form class="form" action="what-do-you-need-to-do" method="post">
          
         <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="feelings-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       <h1 class="govuk-fieldset__heading">
-        Choose any common feelings you might relate to. 
+       Choose any feelings that reflect how you’re doing. (optional)
       </h1>
     </legend>
     <div id="feelings-hint" class="govuk-hint">
@@ -82,7 +83,7 @@
   </fieldset>
          <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--m" for="more-detail">
-      Is there anything else you want to add? (optional)
+      Do you want to give us more context? (optional)
     </label>
   </h1>
   <div id="more-detail-hint" class="govuk-hint">
