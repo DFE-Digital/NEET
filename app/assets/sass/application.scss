@@ -152,6 +152,7 @@
   flex-direction: column;
   justify-content: center;
   padding: govuk-spacing(8) !important;
+  border-left: 4px solid govuk-colour("blue");
 }
 
 @media (max-width: 640px) {
