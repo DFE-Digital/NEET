@@ -51,8 +51,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border: 1px solid #b1b4b6;
+    background-color: govuk-colour("white");
+    border: 1px solid govuk-colour("mid-grey");
 }
 
 .dfe-card>picture,
@@ -78,7 +78,7 @@
 
 .dfe-card:hover,
 .dfe-card:focus-within {
-    background-color: #003a69;
+    background-color: govuk-colour("dark-blue");
 }
 
 .dfe-card:hover a,
@@ -87,16 +87,16 @@
 .dfe-card:focus-within p,
 .dfe-card:hover .govuk-heading-m,
 .dfe-card:focus-within .govuk-heading-m {
-    color: #ffffff;
+    color: govuk-colour("white");
 }
 
 .dfe-card:focus-within {
-    outline: 3px solid #ffdd00;
+    outline: 3px solid govuk-colour("yellow");
 }
 
 .dfe-card-container .dfe-card-link--retake:focus,
 .dfe-card-container .dfe-card-link--header:focus {
-    color: #0b0c0c;
+    color: govuk-colour("black");
 }
 
 .dfe-card-link--retake {
@@ -106,7 +106,7 @@
 
 .dfe-card-link--header {
     text-decoration: none;
-    color: #347ca9;
+    color: govuk-colour("blue");
 }
 
 .dfe-card-link--header:after {
@@ -125,7 +125,7 @@
 
 .neet-split-panel {
   display: flex !important;
-  background: #f3f3f3;
+  background: govuk-colour("light-grey");
   margin-bottom: govuk-spacing(4) !important;
   overflow: hidden;
 }
